@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Student">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/under_dev"
+            android:layout_width="256dp"
+            android:layout_height="256dp"
+            android:layout_margin="32dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/student_login"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="356dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textStyle="bold"
+                android:text="@string/enter_password_and_login_here"
+                android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="256dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="72dp"
+                android:layout_marginRight="72dp"
+                android:layout_marginBottom="12dp"
+                android:gravity="center"
+                android:text="@string/stx_clg"
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="312dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="8dp"
+                app:placeholderText="User id">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EdtUserId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:cursorVisible="false"
+                    android:drawableStart="@drawable/sid"
+                    android:drawablePadding="10dp"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="@string/user_id"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="312dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="8dp"
+                app:passwordToggleEnabled="true"
+                app:placeholderText="Password">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EdtUserPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:hint="@string/enter_your_password"
+                    android:inputType="textPassword" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/userLogin"
+                    android:layout_width="128dp"
+                    style="@style/Widget.Material3.Button"
+                    android:translationZ="2dp"
+                    android:stateListAnimator="@null"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="@string/login" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/userBack"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="256dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:text="@string/want_to_change_email" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="32dp"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

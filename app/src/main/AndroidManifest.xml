@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission
+        android:name="android.permission.READ_MEDIA_IMAGES"
+        android:minSdkVersion="33" />
+
+    <application
+        android:name=".StudyMateAlpha"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.StudyMateAlpha"
+        tools:targetApi="31">
+        <activity
+            android:name=".admin.AdminCreate"
+            android:exported="false" />
+        <activity
+            android:name=".Admin_panel"
+            android:exported="true" />
+        <activity
+            android:name=".Admin_view"
+            android:exported="true" />
+        <activity
+            android:name=".assignment_add"
+            android:exported="true" />
+        <activity
+            android:name=".assignment_view"
+            android:exported="true" />
+        <activity
+            android:name=".faculty_add"
+            android:exported="true" />
+        <activity
+            android:name=".Faculty_panel"
+            android:exported="true" />
+        <activity
+            android:name=".Faculty"
+            android:exported="true" />
+        <activity
+            android:name=".faculty_update"
+            android:exported="true" />
+        <activity
+            android:name=".faculty_view"
+            android:exported="true" />
+        <activity
+            android:name=".notice_add"
+            android:exported="true" />
+        <activity
+            android:name=".notice_view"
+            android:exported="true" />
+        <activity
+            android:name=".student_add"
+            android:exported="true" />
+        <activity
+            android:name=".student_update"
+            android:exported="true" />
+        <activity
+            android:name=".student_view"
+            android:exported="true" />
+        <activity
+            android:name=".Student_panel"
+            android:exported="true" />
+        <activity
+            android:name=".Student"
+            android:exported="true" />
+        <activity
+            android:name=".AboutUs"
+            android:exported="true" />
+        <activity
+            android:name=".Admin"
+            android:exported="true" />
+        <activity
+            android:name=".ContactUs"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admin_view">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/cod"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="@drawable/back_24"
+                app:title="Update admin profile"
+                app:titleCentered="true"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cod">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/Admin_updateimage"
+                android:layout_width="256dp"
+                android:layout_height="256dp"
+                android:src="@drawable/add_img"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="32dp" />
+            <LinearLayout
+                android:id="@+id/adll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="32dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="256dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"
+                    android:layout_marginBottom="8dp"
+                    app:placeholderText="Name...">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Admin_updateId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/sid"
+                        android:drawablePadding="10dp"
+                        android:hint="@string/admin_id"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:cursorVisible="false"
+                        android:inputType="none" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="256dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"
+                    app:placeholderText="Name...">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Admin_updatename"
+                        android:inputType="text"
+                        android:drawableStart="@drawable/admin_add_faculty_name"
+                        android:drawablePadding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/admin_name"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="256dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"
+                    app:placeholderText="Email">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Admin_updateemail"
+                        android:inputType="textEmailAddress"
+                        android:drawableStart="@drawable/email"
+                        android:drawablePadding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/you_example_com"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAdmin_update"
+                    android:layout_width="256dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:translationZ="2dp"
+                    android:stateListAnimator="@null"
+                    android:elevation="3dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginRight="32dp"
+                    android:layout_marginBottom="2dp"
+                    android:text="@string/update_your_detail" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"/>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

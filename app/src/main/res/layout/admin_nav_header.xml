@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="18dp"
+    android:layout_marginStart="22dp"
+    android:layout_marginEnd="22dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:src="@drawable/add_img"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:id="@+id/admin_photo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/admin_name_head"
+        android:hint="@string/admin_name"
+        android:paddingTop="8dp"
+        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/admin_photo"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/admin_email_head"
+        android:hint="@string/admin_gmail_com"
+        android:paddingTop="8dp"
+        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+        android:textStyle="normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/admin_name_head"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/app_version"
+        android:paddingTop="8dp"
+        android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
+        android:textStyle="normal"
+        android:text="@string/v1_7_8_alpha10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="2dp"
+        android:background="#808080"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/admin_email_head" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
