@@ -1,6 +1,6 @@
 <h1 align="center" id="title">StudyMateAlpha</h1>
 
-<p align="center"><img src="https://socialify.git.ci/kotlindevs/StudyMateAlpha/image?language=1&amp;owner=1&amp;name=1&amp;stargazers=1&amp;theme=Light" alt="project-image"></p>
+<p align="center"><img src="https://socialify.git.ci/kotlindevs/StudyMateAlpha/image?language=1&amp;owner=1&amp;name=1&amp;stargazers=1&amp;theme=Light" alt="project-image" width="300" height="400"></p>
 
 <p id="description">StudyMate is an educational app designed to assist students with their studies. It is the companion app for “StudyMate” which is the enterprise version of StudyMate licensed by schools and universities.</p>
 
