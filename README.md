@@ -8,7 +8,7 @@
 🌊 [Rajat_Kevat](https://rajattdev.carrd.co)
 
 ## Logo of the application
-![Logo](https://raw.githubusercontent.com/kotlindevs/Dopamine/Stable/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp)
+![Logo](https://raw.githubusercontent.com/kotlindevs/StudyMateAlpha/refs/heads/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp)
 
 <h2>Project Screenshots:</h2>
 
