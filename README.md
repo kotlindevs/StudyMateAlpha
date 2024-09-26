@@ -4,9 +4,11 @@
 
 <p id="description">StudyMate is an educational app designed to assist students with their studies. It is the companion app for “StudyMate” which is the enterprise version of StudyMate licensed by schools and universities.</p>
 
-<h2>🚀 Demo</h2>
+## Authors
+🌊 [Rajat_Kevat](https://rajattdev.carrd.co)
 
-[https://www.youtube.com/watch?v=YVh3Blo6klE](https://www.youtube.com/watch?v=YVh3Blo6klE)
+## Logo of the application
+![Logo](https://raw.githubusercontent.com/kotlindevs/Dopamine/Stable/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp)
 
 <h2>Project Screenshots:</h2>
 
@@ -23,28 +25,6 @@
   </tr>
 </table>
 
-<h2>🧐 Features</h2>
+## Support
 
-Here're some of the project's best features:
-
-*   Easy To Use
-
-<h2>🛠️ Installation Steps:</h2>
-
-<p>1. 1</p>
-
-```
-Admin Login
-```
-
-<p>2. 2</p>
-
-```
-Enter Organization Number To Unlock Admin And Let Admin Decide Which FacultyStudentNoticesEtc... Should Be Added And Deleted
-```
-
-<p>3. 3</p>
-
-```
-On Faculty Or Student Side Faculty Can See Notices And Assignments And Students .
-```
+For support, email kotlindevslife@gmail.com !
