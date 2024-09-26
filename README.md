@@ -10,20 +10,19 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://raw.githubusercontent.com/kotlindevs/StudyMateAlpha/refs/heads/master/app/1.jpg" alt="project-screenshot" width="150" height="300/">
+<table>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/kotlindevs/StudyMateAlpha/refs/heads/master/app/1.jpg" alt="project-screenshot" width="150" height="300"></td>
+    <td><img src="https://github.com/kotlindevs/StudyMateAlpha/blob/master/app/2.jpg?raw=true" alt="project-screenshot" width="150" height="300"></td>
+    <td><img src="https://github.com/kotlindevs/StudyMateAlpha/blob/master/app/3.jpg?raw=true" alt="project-screenshot" width="150" height="300"></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/kotlindevs/StudyMateAlpha/blob/master/app/4.jpg?raw=true" alt="project-screenshot" width="150" height="300"></td>
+    <td><img src="https://github.com/kotlindevs/StudyMateAlpha/blob/master/app/5.jpg?raw=true" alt="project-screenshot" width="150" height="300"></td>
+    <td><img src="https://github.com/kotlindevs/StudyMateAlpha/blob/master/app/6.jpg?raw=true" alt="project-screenshot" width="150" height="300"></td>
+  </tr>
+</table>
 
-<img src="https://github.com/kotlindevs/StudyMateAlpha/blob/master/app/2.jpg?raw=true" alt="project-screenshot" width="150" height="300/">
-
-<img src="https://github.com/kotlindevs/StudyMateAlpha/blob/master/app/3.jpg?raw=true" alt="project-screenshot" width="150" height="300/">
-
-<img src="https://github.com/kotlindevs/StudyMateAlpha/blob/master/app/4.jpg?raw=true" alt="project-screenshot" width="150" height="300/">
-
-<img src="https://github.com/kotlindevs/StudyMateAlpha/blob/master/app/5.jpg?raw=true" alt="project-screenshot" width="150" height="300/">
-
-<img src="https://github.com/kotlindevs/StudyMateAlpha/blob/master/app/6.jpg?raw=true" alt="project-screenshot" width="150" height="300/">
-
-  
-  
 <h2>🧐 Features</h2>
 
 Here're some of the project's best features:
