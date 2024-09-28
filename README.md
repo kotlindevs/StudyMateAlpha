@@ -3,7 +3,7 @@
 <p id="description">StudyMate is an educational app designed to assist students with their studies. It is the companion app for “StudyMate” which is the enterprise version of StudyMate licensed by schools and universities.</p>
 
 ## Authors
-🌊 [Rajat_Kevat](https://rajattdev.carrd.co)
+🌊 [Rajat_Kevat](https://rajattexe.carrd.co)
 
 ## Logo of the application
 ![Logo](https://raw.githubusercontent.com/kotlindevs/StudyMateAlpha/refs/heads/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp)
