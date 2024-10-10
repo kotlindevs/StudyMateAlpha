@@ -27,6 +27,7 @@ class Admin : AppCompatActivity() {
         super.onStart()
         binding.btnLogin.setOnClickListener {
             validateUser()
+            Toast.makeText(this,"Good To Go",Toast.LENGTH_SHORT).show()
         }
         binding.btnSignUp.setOnClickListener {
             startActivity(Intent(this,AdminCreate::class.java))
