@@ -1,6 +1,6 @@
 <h1 align="center" id="title">StudyMateAlpha</h1>
 
-<p id="description">StudyMate is an educational app designed to assist students with their studies. It is the companion app for “StudyMate” which is the enterprise version of StudyMate licensed by schools and universities.</p>
+<p id="description">StudyMate is a student management system where a organisation can handle its users , users can be students and heads also heads can be teachers.</p>
 
 ## Authors
 🌊 [Rajat_Kevat](https://kotlindevs.github.io)
