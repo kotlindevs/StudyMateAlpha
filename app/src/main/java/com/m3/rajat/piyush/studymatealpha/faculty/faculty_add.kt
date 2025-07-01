@@ -51,6 +51,7 @@ class faculty_add : AppCompatActivity() {
         btn_add_faculty.setOnClickListener {
             if(faculty_validation()) {
                 addFaculty()
+                startActivity(Intent(applicationContext, Admin_panel::class.java))
             }
         }
 

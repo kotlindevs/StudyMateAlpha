@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
 import android.view.View
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
@@ -17,7 +16,6 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.color.MaterialColors
 import com.m3.rajat.piyush.studymatealpha.R
 import com.m3.rajat.piyush.studymatealpha.admin.Admin_panel
-import com.m3.rajat.piyush.studymatealpha.assignment.assignment_add
 import com.m3.rajat.piyush.studymatealpha.database.SQLiteHelper
 import com.m3.rajat.piyush.studymatealpha.databinding.ActivityStudentViewBinding
 

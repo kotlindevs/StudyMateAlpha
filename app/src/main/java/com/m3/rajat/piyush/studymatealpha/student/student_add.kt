@@ -51,6 +51,7 @@ class student_add : AppCompatActivity() {
         btn_add_student.setOnClickListener {
             if(studentValidation()){
                 addStudent()
+                startActivity(Intent(applicationContext, Admin_panel::class.java))
             }
         }
 

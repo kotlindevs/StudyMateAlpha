@@ -32,7 +32,7 @@ class assignment_add : AppCompatActivity() {
             if (assignment_validation()) {
                 addAssignment()
                 clearAssignment()
-                startActivity(Intent(applicationContext, assignment_view::class.java))
+                startActivity(Intent(applicationContext, Admin_panel::class.java))
             }
         }
 

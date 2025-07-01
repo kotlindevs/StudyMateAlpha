@@ -33,7 +33,7 @@ class notice_add : AppCompatActivity() {
             if(noticeValidation()){
                 addNotice()
                 clearNotice()
-                startActivity(Intent(applicationContext, notice_view::class.java))
+                startActivity(Intent(applicationContext, Admin_panel::class.java))
             }
         }
 
