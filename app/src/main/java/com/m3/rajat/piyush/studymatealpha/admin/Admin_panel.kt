@@ -1,10 +1,15 @@
 package com.m3.rajat.piyush.studymatealpha.admin
 
 import android.annotation.SuppressLint
+import android.content.ComponentCallbacks2
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.os.Build
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
@@ -21,11 +26,11 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.navigation.NavigationView
-import com.m3.rajat.piyush.studymatealpha.database.AdminModel
 import com.m3.rajat.piyush.studymatealpha.R
-import com.m3.rajat.piyush.studymatealpha.database.SQLiteHelper
 import com.m3.rajat.piyush.studymatealpha.assignment.assignment_add
 import com.m3.rajat.piyush.studymatealpha.assignment.assignment_view
+import com.m3.rajat.piyush.studymatealpha.database.AdminModel
+import com.m3.rajat.piyush.studymatealpha.database.SQLiteHelper
 import com.m3.rajat.piyush.studymatealpha.databinding.ActivityAdminPanelBinding
 import com.m3.rajat.piyush.studymatealpha.faculty.faculty_add
 import com.m3.rajat.piyush.studymatealpha.faculty.faculty_view
@@ -49,7 +54,7 @@ class Admin_panel : AppCompatActivity() {
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
     private lateinit var binding : ActivityAdminPanelBinding
 
-    @SuppressLint("UseCompatLoadingForDrawables", "SuspiciousIndentation")
+    @SuppressLint("UseCompatLoadingForDrawables", "SuspiciousIndentation", "ObsoleteSdkInt")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAdminPanelBinding.inflate(layoutInflater)
@@ -65,6 +70,28 @@ class Admin_panel : AppCompatActivity() {
 
             val rootLayout = findViewById<View>(android.R.id.content)
             rootLayout.startAnimation(shake)
+
+            val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+                vibrator.vibrate(
+                    VibrationEffect.createOneShot(
+                        500,
+                        VibrationEffect.DEFAULT_AMPLITUDE
+                    )
+                )
+            } else {
+                vibrator.vibrate(500)
+            }
+
+            try{
+                cacheDir.deleteRecursively()
+                externalCacheDir?.deleteRecursively()
+            } catch (e:Exception) {
+                e.printStackTrace()
+            }
+
+            Runtime.getRuntime().gc()
+            onTrimMemory(ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW)
         }
 
 
