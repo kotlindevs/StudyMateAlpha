@@ -1,15 +1,19 @@
-package com.m3.rajat.piyush.studymatealpha
+package com.m3.rajat.piyush.studymatealpha.notice
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.m3.rajat.piyush.studymatealpha.R
+import com.m3.rajat.piyush.studymatealpha.database.AdminModel
 
 class NoticeAdapter : RecyclerView.Adapter<NoticeAdapter.NoticeViewHolder>() {
 
     private var admList : ArrayList<AdminModel> = ArrayList()
     private var onClickItem : ((AdminModel) -> Unit) ?= null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun addItems(items: ArrayList<AdminModel>){
         this.admList = items
         notifyDataSetChanged()

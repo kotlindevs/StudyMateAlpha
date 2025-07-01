@@ -1,4 +1,4 @@
-package com.m3.rajat.piyush.studymatealpha
+package com.m3.rajat.piyush.studymatealpha.assignment
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -6,8 +6,11 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.m3.rajat.piyush.studymatealpha.database.AdminModel
+import com.m3.rajat.piyush.studymatealpha.R
+import com.m3.rajat.piyush.studymatealpha.database.SQLiteHelper
+import com.m3.rajat.piyush.studymatealpha.admin.Admin_panel
 import com.m3.rajat.piyush.studymatealpha.databinding.ActivityAssignmentAddBinding
 
 class assignment_add : AppCompatActivity() {
@@ -18,9 +21,6 @@ class assignment_add : AppCompatActivity() {
     private lateinit var btn_back: Button
     private lateinit var binding : ActivityAssignmentAddBinding
     private lateinit var sqLiteHelper: SQLiteHelper
-    private lateinit var recyclerView: RecyclerView
-    private var adapter: AssignmentAdapter? = null
-    private var adm: AdminModel? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAssignmentAddBinding.inflate(layoutInflater)
@@ -37,7 +37,7 @@ class assignment_add : AppCompatActivity() {
         }
 
         btn_back.setOnClickListener {
-            startActivity(Intent(applicationContext,Admin_panel::class.java))
+            startActivity(Intent(applicationContext, Admin_panel::class.java))
         }
 
 
@@ -71,13 +71,13 @@ class assignment_add : AppCompatActivity() {
 
     private fun assignment_validation(): Boolean {
         if(assignment_name.length() == 0){
-            assignment_name.setError("Name Required")
+            assignment_name.error = "Name Required"
             return false
         } else if(assignment_sdate.length()==0){
-            assignment_name.setError("Date Needed")
+            assignment_name.error = "Date Needed"
             return false
         } else if(assignment_type.length()==0){
-            assignment_type.setError("Type Can't Be Empty")
+            assignment_type.error = "Type Can't Be Empty"
         }
         return true
     }

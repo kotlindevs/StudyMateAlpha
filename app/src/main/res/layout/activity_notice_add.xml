@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".notice_add">
+    tools:context=".notice.notice_add">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/cod"
@@ -73,13 +73,11 @@
         app:layout_constraintTop_toBottomOf="@+id/cod"
         app:layout_constraintRight_toRightOf="parent">
 
-        <com.airbnb.lottie.LottieAnimationView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/under_dev"
+            android:src="@drawable/type"
             android:layout_width="match_parent"
-            android:layout_height="256dp"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/admin_add_notice" />
+            android:layout_height="256dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"

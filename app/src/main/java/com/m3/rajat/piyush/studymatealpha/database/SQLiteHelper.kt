@@ -1,4 +1,4 @@
-package com.m3.rajat.piyush.studymatealpha
+package com.m3.rajat.piyush.studymatealpha.database
 import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
@@ -93,23 +93,23 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
         onCreate(p0)
 
         //Faculty Table
-        p0!!.execSQL("DROP TABLE IF EXISTS $TBL_FACULTY")
+        p0.execSQL("DROP TABLE IF EXISTS $TBL_FACULTY")
         onCreate(p0)
 
         //Student Table
-        p0!!.execSQL("DROP TABLE IF EXISTS $TBL_STUDENT")
+        p0.execSQL("DROP TABLE IF EXISTS $TBL_STUDENT")
         onCreate(p0)
 
         //Notice Table
-        p0!!.execSQL("DROP TABLE IF EXISTS $TBL_NOTICE")
+        p0  .execSQL("DROP TABLE IF EXISTS $TBL_NOTICE")
         onCreate(p0)
 
         //Assignment Table
-        p0!!.execSQL("DROP TABLE IF EXISTS $TBL_ASSIGNMENT")
+        p0.execSQL("DROP TABLE IF EXISTS $TBL_ASSIGNMENT")
         onCreate(p0)
 
         //ContactUs Table
-        p0!!.execSQL("DROP TABLE IF EXISTS $TBL_CONTACT")
+        p0.execSQL("DROP TABLE IF EXISTS $TBL_CONTACT")
         onCreate(p0)
     }
 
@@ -159,7 +159,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
         return insertQuery
     }
 
-    @SuppressLint("Range")
+    @SuppressLint("Range", "Recycle")
     fun getAdmin(id : Int) : ArrayList<AdminModel>{
         val db  = this.readableDatabase
         val adminImageList : ArrayList<AdminModel> = ArrayList()
@@ -185,7 +185,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
     }
 
 
-    @SuppressLint("Range")
+    @SuppressLint("Range", "Recycle")
     fun getFaculty(id : Int) : ArrayList<AdminModel>{
         val db  = this.readableDatabase
         val faculty : ArrayList<AdminModel> = ArrayList()
@@ -211,7 +211,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
         return faculty
     }
 
-    @SuppressLint("Range")
+    @SuppressLint("Range", "Recycle")
     fun getStudent(id : Int) : ArrayList<AdminModel>{
         val db  = this.readableDatabase
         val student : ArrayList<AdminModel> = ArrayList()
@@ -251,7 +251,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
 
 
     //Displaying Data Of Faculty
-    @SuppressLint("Range")
+    @SuppressLint("Range", "Recycle")
     fun getAllFaculty() : ArrayList<AdminModel>
     {
         val admList : ArrayList<AdminModel> = ArrayList()
@@ -268,7 +268,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
             return ArrayList()
         }
         var id : Int
-        var image:ByteArray? = null
+        var image:ByteArray?
         var name : String
         var email : String
         var password : String
@@ -353,7 +353,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
     }
 
     //Displaying Data Of Student
-    @SuppressLint("Range")
+    @SuppressLint("Range", "Recycle")
     fun getAllStudent() : ArrayList<AdminModel>
     {
         val admList : ArrayList<AdminModel> = ArrayList()
@@ -370,7 +370,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
             return ArrayList()
         }
         var id : Int
-        var image : ByteArray? = null
+        var image : ByteArray?
         var name : String
         var email : String
         var password : String
@@ -438,7 +438,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
     }
 
     //Displaying Notices
-    @SuppressLint("Range")
+    @SuppressLint("Range", "Recycle")
     fun getAllNotice(): ArrayList<AdminModel> {
         val admList : ArrayList<AdminModel> = ArrayList()
         val selectQuery = "SELECT * FROM $TBL_NOTICE"
@@ -501,7 +501,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
     }
 
     //Displaying Assignments
-    @SuppressLint("Range")
+    @SuppressLint("Range", "Recycle")
     fun getAllAssignment(): ArrayList<AdminModel> {
         val admList : ArrayList<AdminModel> = ArrayList()
         val selectQuery = "SELECT * FROM $TBL_ASSIGNMENT"
@@ -536,21 +536,9 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
         return admList
     }
 
-    //Deleting Assignments
-    fun DeleteAssignment(name_assign: String): Int{
-        val db = this.writableDatabase
-
-        val contentValues = ContentValues()
-        contentValues.put(ASSIGNMENT_NAME,name_assign)
-
-        val DeleteQuery = db.delete(TBL_ASSIGNMENT,"assignment_name=$ASSIGNMENT_NAME",null)
-        db.close()
-        return DeleteQuery
-    }
-
     //facultyLogin
 
-    @SuppressLint("Range")
+    @SuppressLint("Range", "Recycle")
     fun isFaculty(email : String) : ArrayList<AdminModel>{
         val db  = this.readableDatabase
         val facultyList : ArrayList<AdminModel> = ArrayList()
@@ -574,7 +562,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
         return facultyList
     }
 
-    @SuppressLint("Range")
+    @SuppressLint("Range", "Recycle")
     fun isStudent(email : String) : ArrayList<AdminModel>{
         val db  = this.readableDatabase
         val studentList : ArrayList<AdminModel> = ArrayList()
@@ -598,6 +586,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
         return studentList
     }
 
+    @SuppressLint("Range", "Recycle")
     fun checkAdmin(email : String) : ArrayList<AdminModel>{
         val db  = this.readableDatabase
         val adminList : ArrayList<AdminModel> = ArrayList()
@@ -622,7 +611,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
         return adminList
     }
 
-    @SuppressLint("Range")
+    @SuppressLint("Range", "Recycle")
     fun chkPasswdStudent(id : Int) : ArrayList<AdminModel>{
         val db  = this.readableDatabase
         val studentList : ArrayList<AdminModel> = ArrayList()
@@ -645,7 +634,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
         return studentList
     }
 
-    @SuppressLint("Range")
+    @SuppressLint("Range", "Recycle")
     fun chkPasswdFaculty(id : Int) : ArrayList<AdminModel>{
         val db  = this.readableDatabase
         val facultyList : ArrayList<AdminModel> = ArrayList()

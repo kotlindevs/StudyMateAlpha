@@ -1,4 +1,5 @@
-package com.m3.rajat.piyush.studymatealpha
+package com.m3.rajat.piyush.studymatealpha.faculty
+import android.annotation.SuppressLint
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
@@ -6,12 +7,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.m3.rajat.piyush.studymatealpha.R
+import com.m3.rajat.piyush.studymatealpha.database.AdminModel
 
 class FacultyAdapter : RecyclerView.Adapter<FacultyAdapter.FacultyViewHolder>() {
 
     private var admList : ArrayList<AdminModel> = ArrayList()
     private var onClickItem : ((AdminModel) -> Unit) ?= null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun addItems(items: ArrayList<AdminModel>){
         this.admList = items
         notifyDataSetChanged()

@@ -1,4 +1,4 @@
-package com.m3.rajat.piyush.studymatealpha
+package com.m3.rajat.piyush.studymatealpha.faculty
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -8,9 +8,11 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.addCallback
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.m3.rajat.piyush.studymatealpha.R
+import com.m3.rajat.piyush.studymatealpha.database.AdminModel
+import com.m3.rajat.piyush.studymatealpha.database.SQLiteHelper
 import com.m3.rajat.piyush.studymatealpha.databinding.ActivityFacultyUpdateBinding
 
 class faculty_update : AppCompatActivity() {
@@ -28,7 +30,6 @@ class faculty_update : AppCompatActivity() {
 
     private lateinit var sqLiteHelper: SQLiteHelper
     private var adapter : FacultyAdapter?= null
-    private var adm : AdminModel?= null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFacultyUpdateBinding.inflate(layoutInflater)
@@ -73,13 +74,13 @@ class faculty_update : AppCompatActivity() {
 
     private fun validation(): Boolean {
         if(upd_name.length() == 0){
-            upd_name.setError("Name Required")
+            upd_name.error = "Name Required"
             return false
         } else if(upd_password.length()==0){
-            upd_password.setError("Password Not Be Null")
+            upd_password.error = "Password Not Be Null"
             return false
         } else if(upd_sub.length()==0){
-            upd_sub.setError("Subject Can't Be Empty")
+            upd_sub.error = "Subject Can't Be Empty"
             return false
         }
         return true
@@ -114,7 +115,7 @@ class faculty_update : AppCompatActivity() {
             sqLiteHelper.DeleteFaculty(email)
             getFaculty()
             dialog.dismiss()
-            startActivity(Intent(applicationContext,faculty_view::class.java))
+            startActivity(Intent(applicationContext, faculty_view::class.java))
         }
         builder.setNegativeButton("No"){ dialog,_->
             dialog.dismiss()

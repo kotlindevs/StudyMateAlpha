@@ -1,4 +1,4 @@
-package com.m3.rajat.piyush.studymatealpha
+package com.m3.rajat.piyush.studymatealpha.student
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -7,10 +7,13 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.addCallback
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.m3.rajat.piyush.studymatealpha.R
+import com.m3.rajat.piyush.studymatealpha.database.AdminModel
+import com.m3.rajat.piyush.studymatealpha.database.SQLiteHelper
 import com.m3.rajat.piyush.studymatealpha.databinding.ActivityStudentUpdateBinding
+import com.m3.rajat.piyush.studymatealpha.faculty.FacultyAdapter
 
 class student_update : AppCompatActivity() {
     private lateinit var upd_name : EditText
@@ -26,7 +29,6 @@ class student_update : AppCompatActivity() {
 
     private lateinit var sqLiteHelper: SQLiteHelper
     private var adapter : FacultyAdapter?= null
-    private var adm : AdminModel?= null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityStudentUpdateBinding.inflate(layoutInflater)
@@ -61,7 +63,7 @@ class student_update : AppCompatActivity() {
         }
 
         binding.topAppBar.setNavigationOnClickListener {
-            startActivity(Intent(applicationContext,student_view::class.java))
+            startActivity(Intent(applicationContext, student_view::class.java))
             finish()
         }
 
@@ -87,13 +89,13 @@ class student_update : AppCompatActivity() {
 
     private fun validation(): Boolean {
         if(upd_name.length() == 0){
-            upd_name.setError("Name Required")
+            upd_name.error = "Name Required"
             return false
         } else if(upd_password.length()==0){
-            upd_password.setError("Password Not Be Null")
+            upd_password.error = "Password Not Be Null"
             return false
         } else if(upd_class.length()==0){
-            upd_class.setError("Class Can't Be Empty")
+            upd_class.error = "Class Can't Be Empty"
             return false
         }
         return true
@@ -108,7 +110,7 @@ class student_update : AppCompatActivity() {
             sqLiteHelper.DeleteStudent(studentEmail)
             getStudent()
             dialog.dismiss()
-            startActivity(Intent(applicationContext,student_view::class.java))
+            startActivity(Intent(applicationContext, student_view::class.java))
         }
         builder.setNegativeButton("No"){ dialog,_->
             dialog.dismiss()

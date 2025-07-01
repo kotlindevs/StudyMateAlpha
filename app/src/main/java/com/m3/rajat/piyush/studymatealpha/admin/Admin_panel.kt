@@ -1,4 +1,4 @@
-package com.m3.rajat.piyush.studymatealpha
+package com.m3.rajat.piyush.studymatealpha.admin
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.view.animation.CycleInterpolator
+import android.view.animation.TranslateAnimation
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -19,9 +21,21 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.navigation.NavigationView
+import com.m3.rajat.piyush.studymatealpha.database.AdminModel
+import com.m3.rajat.piyush.studymatealpha.R
+import com.m3.rajat.piyush.studymatealpha.database.SQLiteHelper
+import com.m3.rajat.piyush.studymatealpha.assignment.assignment_add
+import com.m3.rajat.piyush.studymatealpha.assignment.assignment_view
 import com.m3.rajat.piyush.studymatealpha.databinding.ActivityAdminPanelBinding
+import com.m3.rajat.piyush.studymatealpha.faculty.faculty_add
+import com.m3.rajat.piyush.studymatealpha.faculty.faculty_view
+import com.m3.rajat.piyush.studymatealpha.notice.notice_add
+import com.m3.rajat.piyush.studymatealpha.notice.notice_view
+import com.m3.rajat.piyush.studymatealpha.student.student_add
+import com.m3.rajat.piyush.studymatealpha.student.student_view
 import java.io.ByteArrayOutputStream
 
+@Suppress("DEPRECATION")
 class Admin_panel : AppCompatActivity() {
 
     private lateinit var toggle:ActionBarDrawerToggle
@@ -29,17 +43,13 @@ class Admin_panel : AppCompatActivity() {
     private lateinit var add_student : MaterialCardView
     private lateinit var add_notice : MaterialCardView
     private lateinit var add_assignment : MaterialCardView
-    private lateinit var admin_aboutus : MaterialCardView
-    private lateinit var admin_contactus : MaterialCardView
     private lateinit var byteArray: ByteArray
     private lateinit var adminSession: AdminSession
     private lateinit var  sqLiteHelper: SQLiteHelper
-//    private lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
-//    private var isPermissionGrantedForReadImageAPI33 = false
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
     private lateinit var binding : ActivityAdminPanelBinding
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint("UseCompatLoadingForDrawables", "SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAdminPanelBinding.inflate(layoutInflater)
@@ -47,6 +57,16 @@ class Admin_panel : AppCompatActivity() {
 
         sqLiteHelper = SQLiteHelper(this)
         adminSession= AdminSession(this)
+
+        binding.fab.setOnClickListener {
+            val shake = TranslateAnimation(0f, 10f, 0f, 0f)
+            shake.duration = 500
+            shake.interpolator = CycleInterpolator(7f)
+
+            val rootLayout = findViewById<View>(android.R.id.content)
+            rootLayout.startAnimation(shake)
+        }
+
 
         //Navigation Drawer
         val drawerLayout : DrawerLayout = findViewById(R.id.drawerLayout)
@@ -56,35 +76,26 @@ class Admin_panel : AppCompatActivity() {
         val email : TextView = view.findViewById(R.id.admin_email_head)
         val image : ImageView = view.findViewById(R.id.admin_photo)
 
-//        permissionLauncher = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()){
-//            isPermissionGrantedForReadImageAPI33 = it[android.Manifest.permission.READ_MEDIA_IMAGES] ?: isPermissionGrantedForReadImageAPI33
-//        }
-//        reqPermission()
-
         val adminId = adminSession.sharedPreferences.getInt("id",0)
 
-        if(adminId!=null){
-            val admin = sqLiteHelper.getAdmin(adminId)
-            if(admin.isNotEmpty()){
-                name.text = admin[0].admin_name
-                email.text = admin[0].admin_email
-                if(admin[0].admin_image!=null) {
-                    image.setImageBitmap(
-                        BitmapFactory.decodeByteArray(
-                            admin[0].admin_image,
-                            0,
-                            admin[0].admin_image!!.size
-                        )
+        val admin = sqLiteHelper.getAdmin(adminId)
+        if(admin.isNotEmpty()){
+            name.text = admin[0].admin_name
+            email.text = admin[0].admin_email
+            if(admin[0].admin_image!=null) {
+                image.setImageBitmap(
+                    BitmapFactory.decodeByteArray(
+                        admin[0].admin_image,
+                        0,
+                        admin[0].admin_image!!.size
                     )
-                }else{
-                    image.setImageDrawable(resources.getDrawable(R.drawable.add_img))
-                }
+                )
+            }else{
+                image.setImageDrawable(resources.getDrawable(R.drawable.add_img))
             }
-        }else{
-            startActivity(Intent(applicationContext,Admin::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
         }
 
-            toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
+        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
             drawerLayout.addDrawerListener(toggle)
 
             image.setOnClickListener {
@@ -100,7 +111,10 @@ class Admin_panel : AppCompatActivity() {
                     .show()
             }
 
-        actionBarDrawerToggle = ActionBarDrawerToggle(this,binding.drawerLayout,binding.topAppBar,R.string.open,R.string.close)
+        actionBarDrawerToggle = ActionBarDrawerToggle(this,binding.drawerLayout,binding.topAppBar,
+            R.string.open,
+            R.string.close
+        )
         binding.drawerLayout.addDrawerListener(actionBarDrawerToggle)
 
         actionBarDrawerToggle.syncState()
@@ -108,7 +122,7 @@ class Admin_panel : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
             navView.setNavigationItemSelectedListener {
                 when (it.itemId) {
-                    R.id.admin_nav_profile -> startActivity(Intent(applicationContext,Admin_view::class.java).putExtra("admin_email",adminSession.sharedPreferences.getString("email","")))
+                    R.id.admin_nav_profile -> startActivity(Intent(applicationContext, Admin_view::class.java).putExtra("admin_email",adminSession.sharedPreferences.getString("email","")))
 
                     R.id.admin_nav_addfaculty -> {
                         val faculty_add = Intent(applicationContext, faculty_add::class.java)
@@ -136,26 +150,19 @@ class Admin_panel : AppCompatActivity() {
                             .setTitle("Information")
                             .setCancelable(true)
                             .setPositiveButton("Yes"){
-                                    dialog,msg ->
+                                    dialog, _ ->
                                 adminSession.adminLogout()
                                 startActivity(Intent(applicationContext, Admin::class.java))
                                 finish()
                                 dialog.dismiss()
                             }
                             .setNegativeButton("No"){
-                                    dialog,msg ->
+                                    dialog, _ ->
                                 dialog.dismiss()
                             }
                         materialAlertDialogBuilder.create().show()
                     }
 
-                    R.id.admin_nav_contactUs -> {
-                        startActivity(Intent(applicationContext, ContactUs::class.java))
-                    }
-
-                    R.id.admin_nav_aboutUs -> {
-                        startActivity(Intent(applicationContext, AboutUs::class.java))
-                    }
                 }
                 true
             }
@@ -183,18 +190,6 @@ class Admin_panel : AppCompatActivity() {
             add_assignment = findViewById(R.id.admin_view_assignment)
             add_assignment.setOnClickListener {
                 startActivity(Intent(applicationContext, assignment_view::class.java))
-            }
-
-            //Admin AboutUS
-            admin_aboutus = findViewById(R.id.admin_about_us)
-            admin_aboutus.setOnClickListener {
-                startActivity(Intent(applicationContext, AboutUs::class.java))
-            }
-
-            //Admin ContactUS
-            admin_contactus = findViewById(R.id.admin_contact_us)
-            admin_contactus.setOnClickListener {
-                startActivity(Intent(applicationContext, ContactUs::class.java))
             }
 
     }

@@ -1,4 +1,4 @@
-package com.m3.rajat.piyush.studymatealpha
+package com.m3.rajat.piyush.studymatealpha.notice
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -6,9 +6,11 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.datepicker.MaterialDatePicker
-import com.m3.rajat.piyush.studymatealpha.databinding.ActivityAdminViewBinding
+import com.m3.rajat.piyush.studymatealpha.R
+import com.m3.rajat.piyush.studymatealpha.admin.Admin_panel
+import com.m3.rajat.piyush.studymatealpha.database.AdminModel
+import com.m3.rajat.piyush.studymatealpha.database.SQLiteHelper
 import com.m3.rajat.piyush.studymatealpha.databinding.ActivityNoticeAddBinding
 
 class notice_add : AppCompatActivity() {
@@ -19,9 +21,6 @@ class notice_add : AppCompatActivity() {
     private lateinit var btn_back : Button
     private lateinit var binding : ActivityNoticeAddBinding
     private lateinit var sqLiteHelper: SQLiteHelper
-    private lateinit var recyclerView: RecyclerView
-    private var adapter : NoticeAdapter?= null
-    private var adm : AdminModel?= null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNoticeAddBinding.inflate(layoutInflater)
@@ -39,7 +38,7 @@ class notice_add : AppCompatActivity() {
         }
 
         btn_back.setOnClickListener {
-            startActivity(Intent(applicationContext,Admin_panel::class.java))
+            startActivity(Intent(applicationContext, Admin_panel::class.java))
         }
 
 
@@ -73,13 +72,13 @@ class notice_add : AppCompatActivity() {
 
     private fun noticeValidation(): Boolean {
         if(notice_name.length() == 0){
-            notice_name.setError("Name Required")
+            notice_name.error = "Name Required"
             return false
         } else if(notice_des.length()==0){
-            notice_des.setError("Minimum 5 Words Needed")
+            notice_des.error = "Minimum 5 Words Needed"
             return false
         } else if(notice_date.length()==0){
-            notice_date.setError("Date Can't Be Empty")
+            notice_date.error = "Date Can't Be Empty"
         }
         return true
     }

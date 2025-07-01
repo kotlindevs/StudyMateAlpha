@@ -1,4 +1,4 @@
-package com.m3.rajat.piyush.studymatealpha
+package com.m3.rajat.piyush.studymatealpha.student
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,8 +7,11 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
+import com.m3.rajat.piyush.studymatealpha.R
+import com.m3.rajat.piyush.studymatealpha.database.SQLiteHelper
+import com.m3.rajat.piyush.studymatealpha.faculty.Faculty
 import com.m3.rajat.piyush.studymatealpha.faculty.FacultySession
-import com.m3.rajat.piyush.studymatealpha.student.StudentSession
+import com.m3.rajat.piyush.studymatealpha.faculty.Faculty_panel
 
 class Student : AppCompatActivity() {
 
@@ -86,7 +89,7 @@ class Student : AppCompatActivity() {
 
     private fun validation_student(): Boolean {
         if(userPasswd.length()==0){
-            userPasswd.setError("Password cann't be empty")
+            userPasswd.error = "Password cann't be empty"
             return false
         }
         return true

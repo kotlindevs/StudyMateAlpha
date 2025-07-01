@@ -1,17 +1,21 @@
-package com.m3.rajat.piyush.studymatealpha
+package com.m3.rajat.piyush.studymatealpha.admin
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
+import com.m3.rajat.piyush.studymatealpha.database.AdminModel
+import com.m3.rajat.piyush.studymatealpha.R
+import com.m3.rajat.piyush.studymatealpha.database.SQLiteHelper
 import com.m3.rajat.piyush.studymatealpha.databinding.ActivityAdminViewBinding
 
+@Suppress("DEPRECATION")
 class Admin_view : AppCompatActivity() {
 
     private lateinit var sqLiteHelper: SQLiteHelper
@@ -22,6 +26,7 @@ class Admin_view : AppCompatActivity() {
     private lateinit var image : ImageView
     private lateinit var btn_update : Button
     private  lateinit var  binding : ActivityAdminViewBinding
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAdminViewBinding.inflate(layoutInflater)
@@ -38,23 +43,21 @@ class Admin_view : AppCompatActivity() {
 
         val adminId = adminSession.sharedPreferences.getInt("id",0)
 
-        if(adminId!=null){
-            val admin = sqLiteHelper.getAdmin(adminId)
-            if(admin.isNotEmpty()){
-                id.setText(admin[0].admin_id.toString())
-                name.setText(admin[0].admin_name)
-                email.setText(admin[0].admin_email)
-                if(admin[0].admin_image!=null) {
-                    image.setImageBitmap(
-                        BitmapFactory.decodeByteArray(
-                            admin[0].admin_image,
-                            0,
-                            admin[0].admin_image!!.size
-                        )
+        val admin = sqLiteHelper.getAdmin(adminId)
+        if(admin.isNotEmpty()){
+            id.setText(admin[0].admin_id.toString())
+            name.setText(admin[0].admin_name)
+            email.setText(admin[0].admin_email)
+            if(admin[0].admin_image!=null) {
+                image.setImageBitmap(
+                    BitmapFactory.decodeByteArray(
+                        admin[0].admin_image,
+                        0,
+                        admin[0].admin_image!!.size
                     )
-                }else{
-                    image.setImageDrawable(resources.getDrawable(R.drawable.add_img))
-                }
+                )
+            }else{
+                image.setImageDrawable(resources.getDrawable(R.drawable.add_img))
             }
         }
 
@@ -76,13 +79,13 @@ class Admin_view : AppCompatActivity() {
 
     private fun validation(): Boolean {
         if(id.length() == 0){
-            id.setError("Id Required")
+            id.error = "Id Required"
             return false
         } else if(name.length()==0){
-            name.setError("Name Required")
+            name.error = "Name Required"
             return false
         } else if(email.length()==0){
-            email.setError("Email Can't Be Empty")
+            email.error = "Email Can't Be Empty"
             return false
         }else if(!Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches()){
             Toast.makeText(this,"Email Format Wrong !",Toast.LENGTH_SHORT).show()

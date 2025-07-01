@@ -1,4 +1,5 @@
-package com.m3.rajat.piyush.studymatealpha
+package com.m3.rajat.piyush.studymatealpha.student
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -11,9 +12,14 @@ import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.m3.rajat.piyush.studymatealpha.R
+import com.m3.rajat.piyush.studymatealpha.admin.Admin_panel
+import com.m3.rajat.piyush.studymatealpha.database.AdminModel
+import com.m3.rajat.piyush.studymatealpha.database.SQLiteHelper
 import com.m3.rajat.piyush.studymatealpha.databinding.ActivityStudentAddBinding
 import java.io.ByteArrayOutputStream
 
+@Suppress("DEPRECATION")
 class student_add : AppCompatActivity() {
     private lateinit var student_name : EditText
     private lateinit var student_email : EditText
@@ -39,7 +45,7 @@ class student_add : AppCompatActivity() {
         sqLiteHelper = SQLiteHelper(this)
 
         btnBack.setOnClickListener {
-            startActivity(Intent(applicationContext,Admin_panel::class.java))
+            startActivity(Intent(applicationContext, Admin_panel::class.java))
         }
 
         btn_add_student.setOnClickListener {
@@ -120,23 +126,24 @@ class student_add : AppCompatActivity() {
 
     private fun studentValidation(): Boolean {
         if(student_name.length() == 0){
-            student_name.setError("Name Required")
+            student_name.error = "Name Required"
             return false
         } else if(student_email.length()==0){
-            student_email.setError("Email Can't Be Empty")
+            student_email.error = "Email Can't Be Empty"
             return false
         } else if(student_password.length()==0) {
-            student_password.setError("Password Required")
+            student_password.error = "Password Required"
             return false
         }else if(!Patterns.EMAIL_ADDRESS.matcher(student_email.text.toString()).matches()){
             Toast.makeText(this,"Email Format Is Wrong !",Toast.LENGTH_SHORT).show()
             return false
         } else if(student_class.length()==0) {
-            student_class.setError("Class Needed")
+            student_class.error = "Class Needed"
             return false
         }
         return true
     }
+    @SuppressLint("UseCompatLoadingForDrawables")
     private fun clearFields() {
         student_name.setText("")
         student_email.setText("")

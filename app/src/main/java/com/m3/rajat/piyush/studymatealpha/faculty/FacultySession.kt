@@ -3,13 +3,12 @@ package com.m3.rajat.piyush.studymatealpha.faculty
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import com.m3.rajat.piyush.studymatealpha.Faculty_panel
 import com.m3.rajat.piyush.studymatealpha.MainActivity
 
 class FacultySession(var context: Context) {
     var sharedPreferences: SharedPreferences
-    var editor : SharedPreferences.Editor
-    var modePrivate = 0
+    private var editor : SharedPreferences.Editor
+    private var modePrivate = 0
 
     init {
         this.sharedPreferences = context.getSharedPreferences("Faculty",modePrivate)
@@ -23,15 +22,6 @@ class FacultySession(var context: Context) {
     }
     fun login() : Boolean{
         return sharedPreferences.getBoolean("login",false)
-    }
-
-    fun isLogin(){
-        if(!this.login()){
-            val i: Intent = Intent(context, Faculty_panel::class.java)
-                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            context.startActivity(i)
-        }
     }
 
     fun facultyLogout(){

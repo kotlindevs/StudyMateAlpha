@@ -25,10 +25,10 @@
     <string name="enter_admin_email">Enter Admin Email</string>
     <string name="not_admin">Not Admin ?</string>
     <string name="admin_panel">Admin Panel</string>
-    <string name="faculties">Faculties</string>
-    <string name="students">Students</string>
-    <string name="notices">Notices</string>
-    <string name="assignments">Assignments</string>
+    <string name="faculties">Available Faculties</string>
+    <string name="students">Students List</string>
+    <string name="notices">All Notices</string>
+    <string name="assignments">Given Assignments</string>
     <string name="about_us">About US</string>
     <string name="contact_us">Contact Us</string>
     <string name="back_button">Back Button</string>

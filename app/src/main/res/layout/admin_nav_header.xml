@@ -2,58 +2,60 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="18dp"
-    android:layout_marginStart="22dp"
-    android:layout_marginEnd="22dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:src="@drawable/add_img"
+        android:id="@+id/admin_photo"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:id="@+id/admin_photo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-    
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/add_img"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/admin_name_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:hint="@string/admin_name"
         android:paddingTop="8dp"
         android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
         android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/admin_photo"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/admin_photo" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/admin_email_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:hint="@string/admin_gmail_com"
         android:paddingTop="8dp"
         android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
         android:textStyle="normal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/admin_name_head"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/admin_name_head" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/app_version"
-        android:paddingTop="8dp"
-        android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
-        android:textStyle="normal"
-        android:text="@string/v1_7_8_alpha10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:paddingTop="8dp"
+        android:text="@string/v1_7_8_alpha10"
+        android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <View
+    <com.m3.rajat.piyush.studymatealpha.WaveView
+        android:id="@+id/wavy_line"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="2dp"
-        android:background="#808080"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/admin_email_head" />

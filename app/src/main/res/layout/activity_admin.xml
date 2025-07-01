@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin">
+    tools:context=".admin.Admin">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/cod"
@@ -39,19 +39,11 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cod">
 
-        <com.airbnb.lottie.LottieAnimationView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/under_dev"
+            android:src="@drawable/admin_profile"
             android:layout_width="match_parent"
-            android:layout_height="256dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/admin" />
+            android:layout_height="256dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -68,7 +60,9 @@
                 android:drawableStart="@drawable/email"
                 android:drawablePadding="10dp"
                 android:hint="@string/enter_admin_email"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textColorHint="#8D6E63"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,7 +81,8 @@
                 android:layout_height="wrap_content"
                 android:drawablePadding="10dp"
                 android:hint="@string/enter_admin_password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                tools:ignore="TextContrastCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
@@ -114,27 +109,19 @@
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
             android:layout_marginBottom="8dp"
-            android:text="@string/login" />
+            android:text="@string/login"
+            tools:ignore="VisualLintButtonSize" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnBack"
+            android:id="@+id/btnSignUp"
             style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
             android:layout_marginBottom="17dp"
-            android:text="@string/not_admin" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSignUp"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
-            android:layout_marginBottom="17dp"
-            android:text="@string/create_an_new_account" />
+            android:text="@string/create_an_new_account"
+            tools:ignore="VisualLintButtonSize" />
 
     </LinearLayout>
 

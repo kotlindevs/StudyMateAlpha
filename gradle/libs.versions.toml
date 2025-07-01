@@ -1,16 +1,17 @@
 [versions]
-agp = "8.7.0"
+agp = "8.11.0"
 circleimageview = "3.1.0"
-kotlin = "1.9.23"
-core-ktx = "1.12.0"
+kotlin = "2.2.0"
+core-ktx = "1.16.0"
 junit = "4.13.2"
-androidx-test-ext-junit = "1.1.5"
-espresso-core = "3.5.1"
-appcompat = "1.6.1"
-lottie = "6.4.0"
-material = "1.11.0"
-constraintlayout = "2.1.4"
-activity = "1.8.2"
+androidx-test-ext-junit = "1.2.1"
+espresso-core = "3.6.1"
+appcompat = "1.7.1"
+material = "1.12.0"
+constraintlayout = "2.2.1"
+activity = "1.10.1"
+animation-core-android = "1.8.3"
+ui-android = "1.8.3"
 
 [libraries]
 circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circleimageview" }
@@ -19,7 +20,6 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }

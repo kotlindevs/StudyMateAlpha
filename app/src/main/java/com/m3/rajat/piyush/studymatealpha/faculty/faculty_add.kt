@@ -1,4 +1,4 @@
-package com.m3.rajat.piyush.studymatealpha
+package com.m3.rajat.piyush.studymatealpha.faculty
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
@@ -13,9 +13,14 @@ import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.m3.rajat.piyush.studymatealpha.R
+import com.m3.rajat.piyush.studymatealpha.admin.Admin_panel
+import com.m3.rajat.piyush.studymatealpha.database.AdminModel
+import com.m3.rajat.piyush.studymatealpha.database.SQLiteHelper
 import com.m3.rajat.piyush.studymatealpha.databinding.ActivityFacultyAddBinding
 import java.io.ByteArrayOutputStream
 
+@Suppress("DEPRECATION")
 class faculty_add : AppCompatActivity() {
 
     private lateinit var faculty_name : EditText
@@ -40,7 +45,7 @@ class faculty_add : AppCompatActivity() {
         initView()
         sqLiteHelper = SQLiteHelper(this)
         btn_back.setOnClickListener {
-            startActivity(Intent(applicationContext,Admin_panel::class.java))
+            startActivity(Intent(applicationContext, Admin_panel::class.java))
         }
 
         btn_add_faculty.setOnClickListener {
@@ -95,6 +100,7 @@ class faculty_add : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private fun clearFaculty() {
         faculty_name.setText("")
         faculty_email.setText("")
@@ -139,19 +145,19 @@ class faculty_add : AppCompatActivity() {
     //don't panic if u can't see a validation
     private fun faculty_validation(): Boolean {
         if(faculty_name.length() == 0){
-            faculty_name.setError("Name Required")
+            faculty_name.error = "Name Required"
             return false
         } else if(faculty_email.length()==0) {
-            faculty_email.setError("Email Can't Be Empty")
+            faculty_email.error = "Email Can't Be Empty"
             return false
         }else if(!Patterns.EMAIL_ADDRESS.matcher(faculty_email.text.toString()).matches()){
             Toast.makeText(this,"Email Format Wrong !",Toast.LENGTH_SHORT).show()
             return false
         } else if(faculty_password.length()==0){
-            faculty_password.setError("Password Required")
+            faculty_password.error = "Password Required"
             return false
         } else if(faculty_sub.length()==0) {
-            faculty_sub.setError("Subject Needed")
+            faculty_sub.error = "Subject Needed"
             return false
         }
         return true

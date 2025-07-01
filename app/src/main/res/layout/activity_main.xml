@@ -7,11 +7,12 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/materialTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/app_name"
         android:textAppearance="@style/TextAppearance.Material3.DisplayLarge"
-        android:fontFamily="sans-serif-condensed-medium"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,20 +20,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
 
-    <com.airbnb.lottie.LottieAnimationView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/under_dev"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="256dp"
+        android:src="@drawable/admin_profile"
         app:layout_constraintBottom_toTopOf="@+id/ll1"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.583"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_speed="1.8"
-        app:lottie_rawRes="@raw/home" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialTextView" />
 
     <LinearLayout
         android:id="@+id/ll1"
